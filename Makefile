@@ -6,7 +6,7 @@
 #    By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 12:55:35 by ale-goff          #+#    #+#              #
-#    Updated: 2018/10/22 18:50:30 by ale-goff         ###   ########.fr        #
+#    Updated: 2018/10/23 11:22:33 by ale-goff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ NAME = grimly
 SRCS = grimly.c\
 	   init_values.c\
 	   parse.c\
-	   algorithms.c\
-	   
+	   BFS.c\
+	   queue.c
+
 
 OBJ = $(SRCS:.c=.o)
 
@@ -48,6 +49,10 @@ $(LIBRARY2):
 
 debug:
 	gcc -g -fsanitize=address $(FLAGS) $(OBJ) $(LIBRARY) $(LIBRARY2) -o $(NAME)
+
+flags:
+	gcc $(OBJ) $(LIBRARY) $(LIBRARY2) -o $(NAME)
+
 
 clean:
 	/bin/rm -f $(OBJ) && $(MAKE) clean && $(MAKEP) clean

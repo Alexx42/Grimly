@@ -6,13 +6,13 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:53:08 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/22 19:21:50 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/22 22:09:59 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "grimly.h"
 
-t_map	*init_struct(void)
+t_map		*init_map(void)
 {
 	t_map *map;
 
@@ -25,4 +25,29 @@ t_map	*init_struct(void)
 	map->map = NULL;
 	map->exit = 0;
 	return (map);
+}
+
+t_cell		*init_cell(void)
+{
+	t_cell *cell;
+
+	cell = (t_cell*)malloc(sizeof(t_cell));
+	cell->parent_i = 0;
+	cell->parent_j = 0;
+	cell->f = 0;
+	cell->g = 0;
+	cell->h = 0;
+	return (cell);
+}
+
+t_coord		*init_coord(void)
+{
+	t_coord *coord;
+
+	coord = (t_coord*)malloc(sizeof(t_coord));
+	coord->x_entry = 0;
+	coord->y_entry = 0;
+	coord->x_exit = 0;
+	coord->y_exit = 0;
+	return (coord);
 }
