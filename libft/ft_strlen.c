@@ -6,7 +6,7 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:03:09 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/18 23:28:43 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/22 19:23:01 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 size_t		ft_strlen(const char *str)
 {
-	if (str == NULL)
-		return (0);
 	char *ptr;
 
 	ptr = (char *)str;
-	while(1)
+	while (1)
 	{
 		if (!*(ptr++))
-			break;
+			break ;
 		if (!*(ptr++))
-			break;
+			break ;
 		if (!*(ptr++))
-			break;
+			break ;
 		if (!*(ptr++))
-			break;
-    }
-    return ((ptr - 1) - str);
+			break ;
+	}
+	return ((ptr - 1) - str);
 }

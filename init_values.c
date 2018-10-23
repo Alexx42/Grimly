@@ -6,13 +6,13 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:53:08 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/22 13:39:53 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/22 19:21:50 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "grimly.h"
 
-t_map	*init_struct()
+t_map	*init_struct(void)
 {
 	t_map *map;
 

@@ -6,7 +6,7 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:45:18 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/22 18:07:39 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/22 19:18:20 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,22 @@ void	print_infos(t_map *map)
 	ft_printf("y: %d\n", map->y);
 	ft_printf("empty: %c\n", map->empty);
 	ft_printf("entry: %c\n", map->entry);
-
 	ft_printf("full: %c\n", map->full);
 	ft_printf("path: %c\n", map->path);
 	ft_printf("exit: %c\n", map->exit);
+}
+
+void	free_map(t_map *map, char **arr)
+{
+	int i;
+
+	i = 0;
+	while (i < map->x)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
 
 void	print_map(t_map *map)
@@ -63,6 +75,7 @@ int		main(int ac, char **av)
 			}
 			print_infos(map);
 			print_map(map);
+			free_map(map, map->map);
 			close(fd);
 			i++;
 		}

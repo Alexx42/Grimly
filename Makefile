@@ -6,7 +6,7 @@
 #    By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 12:55:35 by ale-goff          #+#    #+#              #
-#    Updated: 2018/10/22 17:53:49 by ale-goff         ###   ########.fr        #
+#    Updated: 2018/10/22 18:50:30 by ale-goff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = grimly
 SRCS = grimly.c\
 	   init_values.c\
 	   parse.c\
-
+	   algorithms.c\
+	   
 
 OBJ = $(SRCS:.c=.o)
 

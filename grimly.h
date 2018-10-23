@@ -6,7 +6,7 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:45:25 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/22 17:57:52 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/22 19:21:55 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_map
 	char			**map;
 }					t_map;
 
-t_map				*init_struct();
+t_map				*init_struct(void);
 int					parse_line(t_map *map, int fd);
 
 #endif
