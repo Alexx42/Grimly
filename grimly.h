@@ -6,13 +6,17 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:45:25 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/22 12:51:28 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/22 17:57:52 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GRIMLY_H
 # define GRIMLY_H
+# include <stdlib.h>
+# include "libft/libft.h"
+# include <fcntl.h>
 
+int					ft_printf(const char *fmt, ...);
 typedef struct		s_map
 {
 	int				x;
@@ -23,6 +27,9 @@ typedef struct		s_map
 	char			exit;
 	char			empty;
 	char			**map;
-}					t_map
+}					t_map;
+
+t_map				*init_struct();
+int					parse_line(t_map *map, int fd);
 
 #endif

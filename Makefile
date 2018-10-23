@@ -6,11 +6,16 @@
 #    By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 12:55:35 by ale-goff          #+#    #+#              #
-#    Updated: 2018/10/22 12:57:17 by ale-goff         ###   ########.fr        #
+#    Updated: 2018/10/22 17:53:49 by ale-goff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = grimly
+
+SRCS = grimly.c\
+	   init_values.c\
+	   parse.c\
+
 
 OBJ = $(SRCS:.c=.o)
 
@@ -22,8 +27,6 @@ LIBRARY2 = ft_printf/libftprintf.a
 
 LIBRARY = libft/libft.a
 
-NAME = calc
-
 INCLUDES = -I libft/
 
 FLAGS = -Wall -Werror -Wextra
@@ -31,16 +34,19 @@ FLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 %.o: %.c
-	gcc $(INCLUDES) -c $< -o $@
+	gcc $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ) $(LIBRARY) $(LIBRARY2)
-	gcc $(INCLUDES) $(OBJ) $(LIBRARY) $(LIBRARY2) -o $(NAME)
+	gcc $(FLAGS) $(INCLUDES) $(OBJ) $(LIBRARY) $(LIBRARY2) -o $(NAME)
 
 $(LIBRARY):
 	$(MAKE)
 
 $(LIBRARY2):
 	$(MAKEP)
+
+debug:
+	gcc -g -fsanitize=address $(FLAGS) $(OBJ) $(LIBRARY) $(LIBRARY2) -o $(NAME)
 
 clean:
 	/bin/rm -f $(OBJ) && $(MAKE) clean && $(MAKEP) clean
