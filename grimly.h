@@ -6,7 +6,7 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:45:25 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/23 16:45:49 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/23 21:15:41 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,6 @@ typedef struct		s_map
 	char			empty;
 	char			**map;
 }					t_map;
-
-typedef struct		s_cell
-{
-	int				parent_i;
-	int				parent_j;
-	double			f;
-	double			g;
-	double			h;
-}					t_cell;
 
 typedef struct		s_point
 {
@@ -63,7 +54,6 @@ typedef struct		s_coord
 
 t_map				*init_map(void);
 t_coord				*init_coord(void);
-t_cell				*init_cell(void);
 int					is_empty(t_queue *queue);
 void				push_queue(t_queue *queue, t_point *pt, int x, int y);
 t_point				*pop_queue(t_queue *queue);

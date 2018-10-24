@@ -6,7 +6,7 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:53:08 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/23 14:57:29 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/23 21:16:28 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,6 @@ t_map		*init_map(void)
 	return (map);
 }
 
-t_cell		*init_cell(void)
-{
-	t_cell *cell;
-
-	cell = (t_cell*)malloc(sizeof(t_cell));
-	cell->parent_i = 0;
-	cell->parent_j = 0;
-	cell->f = 0;
-	cell->g = 0;
-	cell->h = 0;
-	return (cell);
-}
-
 t_coord		*init_coord(void)
 {
 	t_coord *coord;
@@ -57,8 +44,8 @@ t_point		*init_point(t_coord *coord)
 	t_point *point;
 
 	point = (t_point *)malloc(sizeof(t_point));
-	point->x = coord->x_entry;
-	point->y = coord->y_entry;
+	point->x = coord->x_entry - '0';
+	point->y = coord->y_entry - '0';
 	point->papa = NULL;
 	return (point);
 }

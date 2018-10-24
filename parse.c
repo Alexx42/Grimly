@@ -6,7 +6,7 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:49:41 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/22 23:08:06 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/23 22:00:30 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static int		parse_size(t_map *map, int fd)
 	int		res;
 
 	res = 0;
-	i = -1;
+	i = 0;
 	if (get_next_line(fd, &line) <= 0)
 		return (1);
-	while (line[++i])
+	while (line[i])
 	{
 		res = 0;
 		while (ft_isdigit(line[i]) && line[i] != '\0')
@@ -46,6 +46,8 @@ static int		parse_size(t_map *map, int fd)
 		}
 		map->x == 0 ? map->x = res : 0;
 		map->y == 0 ? map->y = res : 0;
+		if (line[i])
+			i++;
 	}
 	parse_end(map, line);
 	ft_strdel(&line);

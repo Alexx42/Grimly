@@ -6,7 +6,7 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 10:52:51 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/23 16:42:56 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/23 21:36:12 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	push_queue(t_queue *queue, t_point *pt, int x, int y)
 	new->x = x;
 	new->y = y;
 	new->papa = pt;
+	new->next = NULL;
 	if (is_empty(queue))
 	{
 		queue->begin = new;

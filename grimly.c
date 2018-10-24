@@ -6,13 +6,13 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:45:18 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/23 16:46:21 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/23 22:03:57 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "grimly.h"
 
-void	print_infos(t_map *map, t_cell *cell, t_coord *coord)
+void	print_infos(t_map *map, t_coord *coord)
 {
 	ft_printf("x: %d\n", map->x);
 	ft_printf("y: %d\n", map->y);
@@ -25,7 +25,6 @@ void	print_infos(t_map *map, t_cell *cell, t_coord *coord)
 	ft_printf("y_entry: %c\n", coord->y_entry);
 	ft_printf("x_exit: : %c\n",coord->x_exit);
 	ft_printf("y_exit: : %c\n",coord->y_exit);
-	ft_printf("cell: %c\n", cell->parent_i);
 }
 
 void	free_map(t_map *map, char **arr)
@@ -64,7 +63,6 @@ int		main(int ac, char **av)
 {
 	int		fd;
 	t_map	*map;
-	t_cell	*cell;
 	t_coord	*coord;
 	t_point *point;
 	int		i;
@@ -76,19 +74,19 @@ int		main(int ac, char **av)
 		{
 			fd = open(av[i], O_RDONLY);
 			map = init_map();
-			cell = init_cell();
 			coord = init_coord();
-			point = init_point(coord);
+
 			if (parse_line(map, fd, coord))
 			{
 				ft_printf("MAP ERROR\n");
 				return (0);
 			}
-			print_infos(map, cell, coord);
+			point = init_point(coord);
 			bfs(map, point);
-			print_map(map);
 			free_map(map, map->map);
 			close(fd);
+			if (i < ac - 1)
+			ft_printf("\n");
 			i++;
 		}
 	}

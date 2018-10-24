@@ -6,7 +6,7 @@
 #    By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 12:55:35 by ale-goff          #+#    #+#              #
-#    Updated: 2018/10/23 11:22:33 by ale-goff         ###   ########.fr        #
+#    Updated: 2018/10/23 20:14:34 by ale-goff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ LIBRARY = libft/libft.a
 
 INCLUDES = -I libft/
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 
 all: $(NAME)
 
@@ -47,8 +47,6 @@ $(LIBRARY):
 $(LIBRARY2):
 	$(MAKEP)
 
-debug:
-	gcc -g -fsanitize=address $(FLAGS) $(OBJ) $(LIBRARY) $(LIBRARY2) -o $(NAME)
 
 flags:
 	gcc $(OBJ) $(LIBRARY) $(LIBRARY2) -o $(NAME)
