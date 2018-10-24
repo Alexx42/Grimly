@@ -67,27 +67,28 @@ int		main(int ac, char **av)
 	t_point *point;
 	int		i;
 
-	i = 1;
+	i = 0;
 	if (ac >= 2)
 	{
-		while (av[i])
+		while  (av[++i])
 		{
 			fd = open(av[i], O_RDONLY);
 			map = init_map();
 			coord = init_coord();
-
 			if (parse_line(map, fd, coord))
 			{
 				ft_printf("MAP ERROR\n");
-				return (0);
+				continue ;
 			}
 			point = init_point(coord);
-			bfs(map, point);
+			if (bfs(map, point) == 0)
+			{
+				ft_printf("MAP ERROR\n");
+				continue ;
+			}
 			free_map(map, map->map);
 			close(fd);
-			if (i < ac - 1)
-			ft_printf("\n");
-			i++;
+			i < ac - 1 ? ft_printf("\n"): 0;
 		}
 	}
 	return (0);

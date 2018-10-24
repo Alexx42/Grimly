@@ -45,16 +45,21 @@ int			visit_neighboor(t_queue *queue, int ***visited, t_map *map, t_point *cur)
 	return (0);
 }
 
-void	print_path(t_point *curr, t_map *map)
+int		print_path(t_point *curr, t_map *map)
 {
 	int i;
 	int j;
+	int count;
 
 	i = 0;
+	count = 0;
 	while (curr != NULL)
 	{
-		map->map[curr->x][curr->y] = map->path;
+		if (map->map[curr->x][curr->y] != map->entry &&
+		map->map[curr->x][curr->y] != map->exit )
+			map->map[curr->x][curr->y] = map->path;
 		curr = curr->papa;
+		count++;
 	}
 	while (i < map->x && (j = 0) == 0)
 	{
@@ -66,6 +71,7 @@ void	print_path(t_point *curr, t_map *map)
 		ft_printf("\n");
 		i++;
 	}
+	return (count);
 }
 
 static int	**create_visited(t_map *map)
@@ -100,29 +106,20 @@ int			bfs(t_map *map, t_point *src)
 	t_queue		queue;
 	t_point		*curr;
 	int			ret;
+	int			count;
 
+	count = 0;
 	visited = create_visited(map);
 	queue.begin = src;
 	queue.end = src;
 	while (!is_empty(&queue))
 	{
-		// ft_printf("x: %d\n", src->x);
-		// ft_printf("y: %d\n", src->y);
-		// ft_printf("SALUT\n");
-
 		curr = pop_queue(&queue);
 		ret = visit_neighboor(&queue, &visited, map, curr);
-		// for (int i = 0; i < map->x; i++)
-		// {
-		// 	for (int j = 0 ; j < map->y; j++)
-		// 	{
-		// 		ft_printf("%d", visited[i][j]);
-		// 	}
-		// 	ft_printf("\n");
-		// }
 		if (ret == 2)
 		{
-			print_path(curr, map);
+			count = print_path(curr, map);
+			ft_printf("RESULT IN %d STEPS\n", count - 2);
 			return (1);
 		}
 	}
