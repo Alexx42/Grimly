@@ -77,9 +77,10 @@ int		main(int ac, char **av)
 			coord = init_coord();
 			if (parse_line(map, fd, coord))
 			{
-				ft_printf("MAP ERROR\n");
+				i < ac - 1 ? ft_printf("MAP ERROR\n\n") : ft_printf("MAP ERROR\n");
 				continue ;
 			}
+			print_infos(map, coord);
 			point = init_point(coord);
 			if (bfs(map, point) == 0)
 			{
