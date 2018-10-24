@@ -6,13 +6,13 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 10:52:51 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/23 11:27:51 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/23 16:42:56 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "grimly.h"
 
-int	is_empty(t_queue *queue)
+int		is_empty(t_queue *queue)
 {
 	if (queue->begin == NULL && queue->end == NULL)
 		return (1);
@@ -37,13 +37,13 @@ void	push_queue(t_queue *queue, t_point *pt, int x, int y)
 	queue->end = new;
 }
 
-void	pop_queue(t_queue *queue)
+t_point	*pop_queue(t_queue *queue)
 {
 	t_point *tmp;
 
 	tmp = queue->begin;
 	if (is_empty(queue))
-		return ;
+		return (NULL);
 	if (queue->begin == queue->end)
 	{
 		queue->begin = NULL;
@@ -51,4 +51,5 @@ void	pop_queue(t_queue *queue)
 	}
 	else
 		queue->begin = queue->begin->next;
+	return (tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:45:18 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/22 23:08:29 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/23 16:46:21 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		main(int ac, char **av)
 	t_map	*map;
 	t_cell	*cell;
 	t_coord	*coord;
+	t_point *point;
 	int		i;
 
 	i = 1;
@@ -77,12 +78,14 @@ int		main(int ac, char **av)
 			map = init_map();
 			cell = init_cell();
 			coord = init_coord();
+			point = init_point(coord);
 			if (parse_line(map, fd, coord))
 			{
 				ft_printf("MAP ERROR\n");
 				return (0);
 			}
 			print_infos(map, cell, coord);
+			bfs(map, point);
 			print_map(map);
 			free_map(map, map->map);
 			close(fd);
