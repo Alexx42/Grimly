@@ -6,22 +6,23 @@
 /*   By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 12:49:41 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/10/24 19:42:16 by ale-goff         ###   ########.fr       */
+/*   Updated: 2018/10/25 13:56:39 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "grimly.h"
 
-static void		parse_end(t_map *map, char *line)
+static void		parse_end(t_map *map, char **line)
 {
 	int i;
 
-	i = (int)ft_strlen(line);
-	map->exit = line[i - 1];
-	map->entry = line[i - 2];
-	map->path = line[i - 3];
-	map->empty = line[i - 4];
-	map->full = line[i - 5];
+	i = (int)ft_strlen(*line);
+	map->exit = (*line)[i - 1];
+	map->entry = (*line)[i - 2];
+	map->path = (*line)[i - 3];
+	map->empty = (*line)[i - 4];
+	map->full = (*line)[i - 5];
+	(*line)[i - 5] = 0;
 }
 
 static int		parse_size(t_map *map, int fd)
@@ -33,6 +34,7 @@ static int		parse_size(t_map *map, int fd)
 	i = 0;
 	if (get_next_line(fd, &line) <= 0)
 		return (1);
+	parse_end(map, &line);
 	while (line[i] && (res = 0) == 0)
 	{
 		while (ft_isdigit(line[i]) && line[i])
@@ -48,7 +50,6 @@ static int		parse_size(t_map *map, int fd)
 			map->y = res;
 		line[i] ? i++ : 0;
 	}
-	parse_end(map, line);
 	ft_strdel(&line);
 	return (0);
 }
