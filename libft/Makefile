@@ -13,6 +13,7 @@
 NAME = libft.a
 
 SRC = ft_atoi.c\
+	  ft_freemap.c\
 	  ft_bzero.c\
 	  get_next_line.c\
 	  ft_isalnum.c\
@@ -80,6 +81,7 @@ SRC = ft_atoi.c\
 
 OBJ = ft_atoi.o\
 	  ft_bzero.o\
+	  ft_freemap.o\
 	  ft_isalnum.o\
 	  get_next_line.o\
 	  ft_isalpha.o\

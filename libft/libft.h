@@ -23,6 +23,7 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+void				ft_freemap(char **arr, int x);
 char				*ft_strrev(char *str);
 void				ft_putoctal(unsigned int n);
 int					get_next_line(int fd, char **line);

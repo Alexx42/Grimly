@@ -57,7 +57,7 @@ t_coord				*init_coord(void);
 int					is_empty(t_queue *queue);
 void				push_queue(t_queue *queue, t_point *pt, int x, int y);
 t_point				*pop_queue(t_queue *queue);
-int					parse_line(t_map *map, int fd, t_coord *coord);
+int					parse_line(t_map *map, int fd, t_coord *coord, t_point **point);
 t_point				*init_point(t_coord *cord);
 int					bfs(t_map *map, t_point *src);
 

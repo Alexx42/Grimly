@@ -6,7 +6,7 @@
 #    By: ale-goff <ale-goff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 12:55:35 by ale-goff          #+#    #+#              #
-#    Updated: 2018/10/23 20:14:34 by ale-goff         ###   ########.fr        #
+#    Updated: 2018/10/24 15:40:34 by ale-goff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = grimly
 SRCS = grimly.c\
 	   init_values.c\
 	   parse.c\
-	   BFS.c\
+	   bfs.c\
 	   queue.c
 
 
@@ -31,7 +31,7 @@ LIBRARY = libft/libft.a
 
 INCLUDES = -I libft/
 
-FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
