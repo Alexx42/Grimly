@@ -24,6 +24,7 @@ t_map		*init_map(void)
 	map->path = 0;
 	map->map = NULL;
 	map->exit = 0;
+	map->line = NULL;
 	return (map);
 }
 

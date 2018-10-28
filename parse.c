@@ -17,6 +17,7 @@ static void		parse_end(t_map *map, char **line)
 	int i;
 
 	i = (int)ft_strlen(*line);
+	map->line = ft_strdup(*line);
 	map->exit = (*line)[i - 1];
 	map->entry = (*line)[i - 2];
 	map->path = (*line)[i - 3];
@@ -61,8 +62,9 @@ static int		check_values(t_map *map, int count[2], int i, t_coord *coord)
 	j = 0;
 	while (map->map[i][j])
 	{
-		if ((map->map[i][j] != map->entry) && (map->map[i][j] != map->exit) &&
-		(map->map[i][j] != map->full && (map->map[i][j] != map->empty)))
+		if (((map->map[i][j] != map->entry) && (map->map[i][j] != map->exit) &&
+		(map->map[i][j] != map->full) && (map->map[i][j] != map->empty)) ||
+		(map->entry == map->exit))
 			return (1);
 		if (map->map[i][j] == map->entry)
 		{

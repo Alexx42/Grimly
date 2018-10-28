@@ -109,8 +109,9 @@ int					bfs(t_map *map, t_point *src)
 		ret = visit_neighboor(&queue, &visited, map, curr);
 		if (ret == 2)
 		{
+			ft_putendl(map->line);
 			count = print_path(curr, map);
-			ft_printf("RESULT IN %d STEPS\n", count - 2);
+			ft_printf("RESULT IN %d STEPS!\n", count - 2);
 			return (0);
 		}
 	}

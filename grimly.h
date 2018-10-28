@@ -28,6 +28,7 @@ typedef struct		s_map
 	char			exit;
 	char			empty;
 	char			**map;
+	char			*line;
 }					t_map;
 
 typedef struct		s_point
