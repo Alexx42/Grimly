@@ -12,11 +12,11 @@
 
 NAME = grimly
 
-SRCS = grimly.c\
+SRCS = $(addprefix srcs/,grimly.c\
 	   init_values.c\
 	   parse.c\
 	   bfs.c\
-	   queue.c
+	   queue.c)
 
 
 OBJ = $(SRCS:.c=.o)
@@ -29,7 +29,7 @@ LIBRARY2 = ft_printf/libftprintf.a
 
 LIBRARY = libft/libft.a
 
-INCLUDES = -I libft/
+INCLUDES = -I libft/ -I includes
 
 FLAGS = -Wall -Werror -Wextra
 
