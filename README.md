@@ -28,9 +28,6 @@ MAP ERROR
 ## Example
 ```bash
 ./grimly resources/01.map
-```
-The output:
-```bash
 10x10* o12
 **1*******
 * o    * *
